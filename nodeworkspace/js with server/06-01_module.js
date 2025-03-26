@@ -7,5 +7,5 @@ function plus(x, y) {
 }
 
 module.exports = {
-  print
+  print,
 }
