@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form name="singleForm">
+    <input type="file" name="avatar">
+    <button type="button" onclick="upload()">단수</button>
+  </form>
+  <hr>
+  <input type="file" multiple name="photos" id="multipleInput">
+  <button type="button" id="multipleButton">복수</button>
+  <script>
+    /* 
+    singleForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      let formData = new FormData(singleForm);
+
+      fetch('http://localhost:5000/profile', {
+          method: 'post',
+          body: formData
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    });
+    */
+
+    function upload() {
+      let formData = new FormData(singleForm);
+
+      fetch('http://localhost:5000/profile', {
+          method: 'post',
+          body: formData
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    }
+
+    let multipleButton = document.querySelector('#multipleButton');
+
+    multipleButton.addEventListener('click', (event) => {
+
+      let files = document.querySelector('#multipleInput').files;
+
+      let formData = new FormData();
+
+      for (let file of files) {
+        formData.append('photos', file);
+      }
+
+      fetch('http://localhost:5000/photos', {
+          method: 'post',
+          body: formData
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    });
+
+    /*
+    let multipleForm = document.querySelector('#multipleForm');
+
+    multipleForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      //let formData = new FormData(multipleForm);
+
+      let files = multipleForm.querySelector('input[name="photos"]').files;
+
+      let formData = new FormData();
+
+      for (let file of files) {
+        formData.append('photos', file);
+      }
+
+      fetch('http://localhost:5000/photos', {
+          method: 'post',
+          body: formData
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    });
+    */
+  </script>
+</body>
+
+</html>
