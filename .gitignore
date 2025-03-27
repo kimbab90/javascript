@@ -137,3 +137,4 @@ dist
 
 # my option
 package-lock.json
+dbConfig.env
