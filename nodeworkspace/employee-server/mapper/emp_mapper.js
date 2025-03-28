@@ -1,5 +1,5 @@
 const mariadb = require('mariadb/callback');
-const sqlList = require('./sql/customers.js');
+const sqlList = require('./sql/emp_sql.js');
 
 const connectionPool = mariadb.createPool({
   host: process.env.DB_HOST,
@@ -14,7 +14,7 @@ const connectionPool = mariadb.createPool({
   logger : {
     query : (msg) => console.log(msg),
     error : (err) => console.log(err),
-    //network
+    //network?
   }
 });
 

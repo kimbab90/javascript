@@ -5,25 +5,52 @@ const findAll = async () => {
   return list;
 };
 
-const findById = () => {
-
+const findById = async (id) => {
+  let list = await mariaDB.query('selectById', [id]);
+  return list[0];
 };
 
-const addCustomer = () => {
-
+const findBySearch = async (key, value) => {
+  let querys = {
+    'N': 'selectBySearch'
+  }
+  let query = 'selectAll';
+  if (querys[key]) {
+    query = querys[key];
+  }
+  let list = await mariaDB.query(query, [value]);
+  return list;
 };
 
-const modifyCustomer = () => {
-
+const addCustomer = async (customer) => {
+  let columns = ['name', 'email', 'phone', 'address'];
+  let item = await mariaDB.query('insertCustomer', arrayCoverter(customer, columns));
+  return item;
 };
 
-const removeCustomer = () => {
+const modifyCustomer = async (customer, id) => {
+  // let columns = ['name', 'email', 'phone', 'address', 'id'];
+  let item = await mariaDB.query('updateCustomer', [customer, id]);
+  return item;
+};
 
+const removeCustomer = async (id) => {
+  let item = await mariaDB.query('deleteCustomer', [id]);
+  return item;
+};
+
+const arrayCoverter = (object, columns) => {
+  let array = [];
+  for (let column of columns) {
+    array.push(object[column]);
+  }
+  return array;
 };
 
 module.exports = {
   findAll,
   findById,
+  findBySearch,
   addCustomer,
   modifyCustomer,
   removeCustomer,
