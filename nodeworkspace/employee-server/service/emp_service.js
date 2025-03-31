@@ -34,7 +34,6 @@ function arrayConverter(object, columns) {
   return result;
 }
 
-
 module.exports = {
   findAll,
   findById,

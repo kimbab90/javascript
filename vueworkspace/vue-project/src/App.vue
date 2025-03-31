@@ -1,10 +1,28 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">Home</router-link> | 
+    <router-link to="/about">About</router-link> | 
+    <router-link to="/data">Data</router-link> | 
+    <router-link v-bind:to="{name: 'list'}">List</router-link> | 
+    <router-link v-bind:to="{name: 'if'}">If</router-link>
   </nav>
   <router-view/>
+  <hr>
+  <!-- <DataBinding/> -->
+  <!-- <ListBinding/> -->
 </template>
+
+<script>
+  // import DataBinding from './views/DataBinding.vue';
+  // import ListBinding from './views/ListBinding.vue';
+
+  // export default {
+  //   components: {
+  //     DataBinding,
+  //     ListBinding
+  //   }
+  // }
+</script>
 
 <style>
 #app {

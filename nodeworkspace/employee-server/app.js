@@ -14,7 +14,7 @@ app.use(express.json());
 // 포트 설정
 app.listen('3000', (err) => {
   if (err) console.log(err);
-  console.log('http://localhost:4000');
+  console.log('http://localhost:3000');
 })
 
 // root 경로 설정
