@@ -5,6 +5,8 @@ import {
 import HomeView from '../views/HomeView.vue'
 import DataBinding from '@/views/DataBinding.vue'
 import IfBinding from '@/views/IfBinding.vue'
+import OnEvent from '@/views/OnEvent.vue'
+import ComputedWatch from '@/views/ComputedWatch.vue'
 
 const routes = [{
     path: '/',
@@ -21,26 +23,28 @@ const routes = [{
   }, {
     path: '/data',
     name: 'data',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: DataBinding
   },
   {
     path: '/list',
     name: 'list',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import( /* webpackChunkName: "about" */ '@/views/ListBinding.vue')
   },
   {
     path: '/if',
     name: 'if',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+
     component: IfBinding
+  },
+  {
+    path: '/event',
+    name: 'event',
+    component: OnEvent
+  },
+  {
+    path: '/computedWatch',
+    name: 'computedWatch',
+    component: ComputedWatch
   }
 ]
 

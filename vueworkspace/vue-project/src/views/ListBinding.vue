@@ -14,7 +14,7 @@
       <tbody>
         <tr v-for="(product, index) in products" v-bind:key="product.product_no">
           <td>
-            {{ index }}
+            {{ product.product_no }}
           </td>
           <td>
             {{ product.product_name }}

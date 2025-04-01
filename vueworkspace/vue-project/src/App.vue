@@ -4,7 +4,9 @@
     <router-link to="/about">About</router-link> | 
     <router-link to="/data">Data</router-link> | 
     <router-link v-bind:to="{name: 'list'}">List</router-link> | 
-    <router-link v-bind:to="{name: 'if'}">If</router-link>
+    <router-link v-bind:to="{name: 'if'}">If</router-link> | 
+    <router-link v-bind:to="{name: 'event'}">Event</router-link> | 
+    <router-link v-bind:to="{name: 'computedWatch'}">ComputedWatch</router-link>
   </nav>
   <router-view/>
   <hr>
