@@ -5,8 +5,12 @@ require('dotenv').config({
 const express = require('express');
 const app = express();
 const customerRouter = require('./router/customer_router.js');
+// const cors = require('cors');
 
-//middleware
+// app.use(cors({
+//   origin: 'http://localhost:8081',
+// }));
+
 app.use(express.urlencoded({
   extended: false
 }));
